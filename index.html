@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ECHO (ECHO) — 101.1 FM · Share Sale on BSC</title>
-<meta name="description" content="ECHO is a fixed-supply share sale on BNB Smart Chain, broadcast like a radio station. 3,000 shares of 1,000,000 ECHO: 600 free (1 per wallet), 2,400 at 0.001 BNB. 100% of proceeds go to the treasury. Unsold supply is burned at sign-off.">
+<meta name="description" content="ECHO is a fixed-supply share sale on BNB Smart Chain, broadcast like a radio station. 3,000 shares of 1,000,000 ECHO: 600 free (1 per wallet), 2,400 at 0.001 BNB. A 7-day broadcast window; unsold supply is burned at sign-off.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='6' y='22' width='88' height='56' rx='10' fill='%2317130e'/><rect x='16' y='34' width='46' height='18' fill='%23ffb43a'/><circle cx='78' cy='58' r='9' fill='%23e4572e'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -12,227 +12,308 @@
   :root{
     --paper:#f7ead9; --ink:#17130e; --mut:#8a6f4d;
     --amber:#ffb43a; --amber2:#f59e0b; --signal:#e4572e; --teal:#14655c; --panel:#fffaf0;
+    --dark:#17130e; --dark2:#2b2118;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{background:var(--paper);color:var(--ink);font-family:"Oswald",system-ui,sans-serif;
-    background-image:radial-gradient(#17130e14 1px,transparent 1.3px);background-size:20px 20px}
+  body{background:#20160c;color:var(--ink);font-family:"Oswald",system-ui,sans-serif;min-height:100vh;overflow-x:hidden}
   .mono{font-family:"IBM Plex Mono",monospace}
-  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
-  header{border-bottom:3px solid var(--ink);background:var(--paper)}
-  .topbar{display:flex;justify-content:space-between;align-items:center;padding:13px 0;gap:12px;flex-wrap:wrap}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.18em;font-size:18px}
-  .onair{background:var(--signal);color:#fff;font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;
-    padding:4px 9px;letter-spacing:.14em;animation:blink 1.6s steps(2) infinite}
-  @keyframes blink{50%{opacity:.35}}
-  nav{display:flex;gap:19px;font-family:"IBM Plex Mono",monospace;font-size:12.5px}
-  nav a{color:var(--ink);text-decoration:none}
-  nav a:hover{color:var(--signal)}
-  .freq{font-family:"IBM Plex Mono",monospace;font-size:12px;border:2px solid var(--ink);padding:5px 10px;background:var(--panel)}
-  /* hero */
-  .hero{padding:40px 0 26px;border-bottom:3px solid var(--ink);text-align:left}
-  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:12.5px;letter-spacing:.26em;color:var(--mut)}
-  h1{font-size:clamp(70px,14vw,150px);font-weight:700;line-height:.95;letter-spacing:.01em;margin:6px 0 2px}
-  h1 .fm{color:var(--signal)}
-  .eq{display:flex;gap:5px;align-items:flex-end;height:44px;margin:14px 0 6px}
-  .eq i{width:13px;background:var(--ink);animation:eq 1.1s ease-in-out infinite}
-  .eq i:nth-child(3n){background:var(--signal)} .eq i:nth-child(4n){background:var(--amber2)}
-  @keyframes eq{0%,100%{height:22%}50%{height:96%}}
-  .lede{font-family:Georgia,serif;font-size:18.5px;line-height:1.6;max-width:640px}
-  .lede b{color:var(--signal)}
-  /* dial */
-  .dial{margin-top:26px;border:3px solid var(--ink);background:linear-gradient(#2b2118,#17130e);padding:18px 18px 12px;color:var(--amber)}
-  .dial .band{position:relative;height:64px;border:2px solid var(--amber);background:#20180f;overflow:hidden}
-  .dial .ticks{position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 9.6%,var(--amber) 9.6% calc(9.6% + 2px))}
-  .dial .fill{position:absolute;top:0;bottom:0;left:0;width:0%;background:#ffb43a2e;transition:width 1s ease}
-  .dial .fill i{display:none}
-  .needle{position:absolute;top:-4px;bottom:-4px;left:0%;width:4px;background:var(--signal);box-shadow:0 0 12px var(--signal);transition:left 1s ease}
-  .dial .nums{display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:12px;margin-top:8px}
-  .dial .cap{display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:12px;color:#f7ead9;margin-top:4px;flex-wrap:wrap;gap:6px}
-  .cdrow{display:flex;gap:13px;flex-wrap:wrap;margin-top:20px}
-  .cd{border:2.5px solid var(--ink);background:var(--panel);padding:9px 15px;font-family:"IBM Plex Mono",monospace}
-  .cd .k{font-size:10.5px;letter-spacing:.16em;color:var(--mut)}
-  .cd .v{font-size:20px;font-weight:600}
-  /* channels */
-  .channels{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:28px 0 4px}
-  @media(max-width:760px){.channels{grid-template-columns:1fr}}
-  .chan{border:3px solid var(--ink);background:var(--panel);padding:22px;box-shadow:7px 7px 0 #17130e22}
-  .chan .tag{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:600;padding:4px 10px;border:2.5px solid var(--ink)}
+  #waveCanvas{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+  .stage{position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:26px 18px 34px}
+
+  /* ============ THE CONSOLE ============ */
+  .console{
+    background:linear-gradient(160deg,#f9efdb,#eedcb9 70%,#e8d3ab);
+    border:3px solid var(--ink);border-radius:22px;
+    box-shadow:0 24px 60px #00000088, inset 0 2px 0 #fffdf6, inset 0 -6px 0 #17130e22;
+    padding:26px 26px 0;overflow:hidden;
+  }
+  .deck{display:grid;grid-template-columns:288px 1fr 288px;gap:24px;align-items:start}
+  @media(max-width:1020px){.deck{grid-template-columns:1fr 1fr}.center{grid-column:1/-1;order:-1}}
+  @media(max-width:640px){.deck{grid-template-columns:1fr}.console{padding:18px 14px 0}}
+
+  /* side modules (claim / buy) */
+  .module{
+    background:var(--panel);border:3px solid var(--ink);border-radius:14px;padding:20px 18px 18px;
+    box-shadow:inset 0 0 0 2px #fffdf6, 6px 6px 0 #17130e26;position:relative;
+    background-image:
+      radial-gradient(circle 4px at 14px 14px, #17130e55 3px, transparent 4px),
+      radial-gradient(circle 4px at calc(100% - 14px) 14px, #17130e55 3px, transparent 4px),
+      radial-gradient(circle 4px at 14px calc(100% - 14px), #17130e55 3px, transparent 4px),
+      radial-gradient(circle 4px at calc(100% - 14px) calc(100% - 14px), #17130e55 3px, transparent 4px);
+  }
+  .module .tag{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;padding:4px 9px;border:2.5px solid var(--ink);letter-spacing:.08em}
   .tag.free{background:var(--teal);color:#fff}.tag.paid{background:var(--amber)}
-  .chan h3{font-size:27px;font-weight:600;margin:10px 0 4px;text-transform:uppercase;letter-spacing:.02em}
-  .chan p{font-family:Georgia,serif;color:var(--mut);line-height:1.6;font-size:15.5px}
-  .meter{height:14px;border:2.5px solid var(--ink);background:#fff;margin:15px 0 7px;overflow:hidden}
+  .module h3{font-size:25px;font-weight:600;margin:11px 0 5px;text-transform:uppercase;letter-spacing:.02em;line-height:1.1}
+  .module p{font-family:Georgia,serif;color:var(--mut);line-height:1.55;font-size:15px}
+  .meter{height:14px;border:2.5px solid var(--ink);background:#fff;margin:15px 0 7px;overflow:hidden;border-radius:7px}
   .meter i{display:block;height:100%;width:0%;transition:width 1s ease}
   .meter .f{background:var(--teal)}.meter .p{background:var(--amber2)}
   .meter-row{display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:12.5px}
-  .qtyrow{display:flex;align-items:center;gap:12px;margin:13px 0 2px}
-  .qtyrow input{width:88px;font-family:"IBM Plex Mono",monospace;font-size:16px;padding:8px;border:2.5px solid var(--ink);background:#fff}
-  .qtyrow .tot{font-family:"IBM Plex Mono",monospace;font-weight:600}
-  .btn{display:inline-block;width:100%;margin-top:13px;padding:14px;font-family:"Oswald",sans-serif;font-weight:600;font-size:18px;letter-spacing:.05em;
-    text-transform:uppercase;border:3px solid var(--ink);cursor:pointer;background:var(--ink);color:var(--paper);transition:transform .08s}
+  .qtyrow{display:flex;align-items:center;gap:12px;margin:14px 0 2px}
+  .qtyrow input{width:84px;font-family:"IBM Plex Mono",monospace;font-size:16px;padding:8px;border:2.5px solid var(--ink);background:#fff;border-radius:6px}
+  .qtyrow .tot{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:14px}
+  .btn{display:inline-block;width:100%;margin-top:14px;padding:14px;font-family:"Oswald",sans-serif;font-weight:600;font-size:18px;letter-spacing:.05em;
+    text-transform:uppercase;border:3px solid var(--ink);border-radius:10px;cursor:pointer;background:var(--ink);color:var(--paper);transition:transform .08s}
   .btn:hover:not(:disabled){transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
   .btn:disabled{opacity:.45;cursor:not-allowed}
   .btn.freeb{background:var(--teal)} .btn.paidb{background:var(--signal)}
-  .status{font-family:"IBM Plex Mono",monospace;font-size:13px;padding:4px 0 24px;color:var(--mut)}
-  /* share */
-  .share{border:3px dashed var(--ink);background:#fdf3d8;padding:21px;margin:4px 0 26px}
+  .btn.ghost{background:var(--panel);color:var(--ink)}
+
+  /* center column: lamp, dial, readouts */
+  .center{display:flex;flex-direction:column;align-items:center;gap:16px}
+  .onair{display:flex;align-items:center;gap:10px;background:var(--dark);color:#fff;border:3px solid var(--ink);
+    border-radius:999px;padding:7px 18px 7px 13px;font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;letter-spacing:.22em}
+  .onair .lamp{width:13px;height:13px;border-radius:50%;background:var(--signal);box-shadow:0 0 12px var(--signal);animation:blink 1.6s steps(2) infinite}
+  @keyframes blink{50%{opacity:.3;box-shadow:none}}
+
+  .dial{
+    position:relative;width:min(430px,84vw);aspect-ratio:1/1;border-radius:50%;
+    background:radial-gradient(circle at 50% 38%,#33271a,#17130e 72%);
+    border:4px solid var(--ink);
+    box-shadow:0 14px 34px #17130e55, inset 0 0 0 3px #ffb43a33, inset 0 -18px 34px #00000066;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .dialring{position:absolute;inset:9px;border-radius:50%;pointer-events:none;
+    background:repeating-conic-gradient(from -90deg, rgba(255,180,58,.4) 0deg 1.4deg, transparent 1.4deg 7.5deg);
+    -webkit-mask:radial-gradient(circle, transparent 57%, #000 58%, #000 65%, transparent 66%);
+            mask:radial-gradient(circle, transparent 57%, #000 58%, #000 65%, transparent 66%);}
+  .dial-in{position:relative;width:76%;text-align:center;color:var(--amber)}
+  .dbrand{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.5em;color:#f7ead9;text-indent:.5em}
+  .dfreq{font-size:clamp(52px,7.5vw,76px);font-weight:700;line-height:1.02;letter-spacing:.01em}
+  .dfreq .fm{color:var(--signal);font-size:.52em;vertical-align:.5em;letter-spacing:.06em}
+  .dband{position:relative;height:56px;margin-top:12px;border:2px solid var(--amber);border-radius:6px;overflow:hidden;
+    background:linear-gradient(90deg,#ffb43a,#f59e0b 55%,#ffb43a)}
+  .bandflip{position:absolute;inset:0;transform:scaleX(-1)}
+  #totalBar{position:absolute;top:0;bottom:0;left:0;width:100%;background:#17130e;opacity:.94;transition:width 1s ease}
+  #needle{position:absolute;top:-5px;bottom:-5px;left:0;width:4px;background:var(--signal);box-shadow:0 0 14px var(--signal);z-index:3}
+  .bandticks{position:absolute;inset:0;z-index:2;pointer-events:none;
+    background:repeating-linear-gradient(90deg,transparent 0 9.6%,rgba(23,19,14,.5) 9.6% calc(9.6% + 2px))}
+  .dnums{display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:11.5px;margin-top:8px;color:var(--amber)}
+  .dcap{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.18em;color:#f7ead9;margin-top:7px}
+
+  .readouts{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+  .ro{background:var(--dark);border:2.5px solid var(--ink);border-radius:9px;padding:8px 14px 9px;min-width:128px;text-align:left;
+    box-shadow:inset 0 2px 8px #000}
+  .ro .k{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.18em;color:#c9a86a;display:flex;align-items:center;gap:6px}
+  .ro .k::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--amber);box-shadow:0 0 8px var(--amber)}
+  .ro .v{font-family:"IBM Plex Mono",monospace;font-size:19px;font-weight:600;color:var(--amber);margin-top:2px}
+
+  /* status strip */
+  .status{margin-top:22px;background:var(--dark);color:var(--amber);border:2.5px solid var(--ink);border-radius:9px;
+    font-family:"IBM Plex Mono",monospace;font-size:13px;padding:11px 15px;box-shadow:inset 0 2px 8px #000}
+  .status::before{content:"▸ ";color:var(--signal)}
+
+  /* silhouette strip */
+  .silhouette{margin:20px -26px 0;background:linear-gradient(#f7ead9,#f2cd8b);border-top:3px solid var(--ink);line-height:0}
+  @media(max-width:640px){.silhouette{margin:20px -14px 0}}
+  .silhouette svg{width:100%;height:76px;display:block}
+  .beacon{animation:blink 2.2s steps(2) infinite}
+
+  /* license plate */
+  .plate{background:linear-gradient(#2b2118,#1a130c);color:#f7ead9;margin:0 -26px;padding:18px 26px 22px;border-top:3px solid var(--amber)}
+  @media(max-width:640px){.plate{margin:0 -14px;padding:16px 14px 20px}}
+  .plate .pt{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.3em;color:var(--amber);margin-bottom:11px}
+  .plate .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px 26px;font-family:"IBM Plex Mono",monospace;font-size:12.5px}
+  @media(max-width:760px){.plate .grid{grid-template-columns:1fr}}
+  .plate .grid b{color:var(--amber);font-weight:600}
+  .plate .addr{word-break:break-all;color:#fff}
+  .plate a{color:var(--amber)}
+
+  /* share box */
+  .share{border:3px dashed var(--ink);background:#fdf3d8;border-radius:14px;padding:20px;margin-top:22px}
   .share .tag{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:600;background:var(--amber);border:2.5px solid var(--ink);padding:4px 9px;margin-bottom:11px}
-  .sharetext{white-space:pre-wrap;font-family:Georgia,serif;font-size:16px;line-height:1.6;border:2px solid var(--ink);background:#fff;padding:13px}
+  .share p{font-family:Georgia,serif;line-height:1.6;font-size:15.5px}
+  .sharetext{white-space:pre-wrap;font-family:Georgia,serif;font-size:16px;line-height:1.6;border:2px solid var(--ink);background:#fff;padding:13px;margin-top:11px}
   .share .row{display:flex;gap:12px;margin-top:13px;flex-wrap:wrap}
   .share .row .btn{width:auto;padding:11px 20px;margin-top:0}
-  .btn.ghost{background:var(--panel);color:var(--ink)}
-  /* license + steps + telegram */
-  section.block{padding:18px 0 6px}
-  section.block h2{font-size:28px;font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-bottom:15px}
-  table{width:100%;border-collapse:collapse;background:var(--panel);border:3px solid var(--ink)}
-  th,td{border-bottom:1.5px solid #17130e2b;padding:10px 13px;text-align:left;font-size:15px}
-  th{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.13em;color:var(--mut);width:32%}
-  tr:last-child th,tr:last-child td{border-bottom:none}
-  td{font-weight:600;font-family:Georgia,serif}
-  .addr{word-break:break-all}
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
-  @media(max-width:760px){.steps{grid-template-columns:1fr}}
-  .step{border:3px solid var(--ink);background:var(--panel);padding:17px}
-  .step .no{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.15em;color:var(--signal)}
-  .step h4{font-size:20px;font-weight:600;margin:5px 0;text-transform:uppercase}
-  .step p{font-family:Georgia,serif;color:var(--mut);line-height:1.6;font-size:15px}
-  .telegram{border:3px solid var(--ink);background:#fdf8ec;padding:20px;border-left:12px solid var(--amber)}
-  .telegram pre{white-space:pre-wrap;font-family:"IBM Plex Mono",monospace;font-size:13px;line-height:1.65}
-  .telegram .btn{width:auto;padding:11px 20px}
-  .qa{border:3px solid var(--ink);background:var(--panel);padding:15px 17px;margin-bottom:11px}
-  .qa h4{font-size:19px;font-weight:600;margin-bottom:3px}
-  .qa p{font-family:Georgia,serif;color:var(--mut);line-height:1.6;font-size:15px}
-  footer{border-top:3px solid var(--ink);padding:20px 0 32px;font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--mut);margin-top:16px}
-  footer a{color:var(--signal)}
+
+  /* service drawer */
+  .drawer{margin-top:22px;display:grid;gap:12px}
+  details{background:var(--panel);border:3px solid var(--ink);border-radius:12px;padding:0 18px}
+  summary{cursor:pointer;font-weight:600;font-size:17px;text-transform:uppercase;letter-spacing:.04em;padding:15px 0;list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";float:right;font-family:"IBM Plex Mono",monospace;color:var(--signal)}
+  details[open ] summary::after{content:"–"}
+  details .inner{padding:0 0 18px}
+  details pre{white-space:pre-wrap;font-family:"IBM Plex Mono",monospace;font-size:12.5px;line-height:1.65;background:#fdf8ec;border:2px solid var(--ink);padding:14px}
+  details .btn{width:auto;padding:11px 20px}
+  .qa{border-top:1.5px solid #17130e2b;padding:11px 0 3px}
+  .qa:first-child{border-top:none}
+  .qa h4{font-size:17px;font-weight:600;margin-bottom:2px}
+  .qa p{font-family:Georgia,serif;color:var(--mut);line-height:1.6;font-size:15px;padding-bottom:8px}
+
+  footer{position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:2px 20px 30px;font-family:"IBM Plex Mono",monospace;font-size:12px;color:#c9a86a;text-align:center}
+  footer a{color:var(--amber)}
+  footer .addr{word-break:break-all}
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap topbar">
-    <div class="brand"><span class="onair">ON AIR</span> RADIO ECHO</div>
-    <nav>
-      <a href="#sale">Channels</a><a href="#license">License</a><a href="#tunein">Tune In</a><a href="#agents">For Agents</a>
-    </nav>
-    <span class="freq">101.1 FM · BSC</span>
-  </div>
-</header>
+<canvas id="waveCanvas" aria-hidden="true"></canvas>
 
-<section class="hero">
-  <div class="wrap">
-    <p class="eyebrow">FIXED-SUPPLY SHARE SALE · BNB SMART CHAIN · BROADCASTING ALL WEEK</p>
-    <h1>ECHO <span class="fm">101.1</span></h1>
-    <div class="eq" aria-hidden="true">
-      <i style="animation-delay:0s"></i><i style="animation-delay:.12s"></i><i style="animation-delay:.3s"></i><i style="animation-delay:.05s"></i><i style="animation-delay:.22s"></i><i style="animation-delay:.4s"></i><i style="animation-delay:.15s"></i><i style="animation-delay:.33s"></i><i style="animation-delay:.08s"></i><i style="animation-delay:.26s"></i><i style="animation-delay:.45s"></i><i style="animation-delay:.18s"></i><i style="animation-delay:.38s"></i><i style="animation-delay:.02s"></i><i style="animation-delay:.28s"></i><i style="animation-delay:.42s"></i>
-    </div>
-    <p class="lede">You are listening to the only station whose shares you can own. ECHO broadcasts 3,000 shares of 1,000,000 ECHO — <b>600 are free</b> to any wallet tuned in, one per listener, and every payment made on air goes straight to the treasury in the same transaction. Turn it up.</p>
+<div class="stage">
+  <div class="console">
+    <div class="deck">
 
-    <div class="dial" aria-hidden="true">
-      <div class="band">
-        <div class="ticks"></div>
-        <div class="fill" id="totalBar"></div>
-        <div class="needle" id="needle"></div>
+      <!-- LEFT MODULE : FREE CHANNEL -->
+      <div class="module">
+        <span class="tag free">CHANNEL A — FREE AIR</span>
+        <h3>The free share</h3>
+        <p>Every tuned-in wallet gets one share free — no purchase, no catch. 600 free broadcasts; when the channel is full, it is full.</p>
+        <div class="meter"><i class="f" id="freeMeter"></i></div>
+        <div class="meter-row"><span><span id="freeSold">0</span> / 600 claimed</span><span><span id="freeLeft">600</span> left</span></div>
+        <button class="btn freeb" id="claimBtn" type="button" disabled>Claim opens at launch</button>
       </div>
-      <div class="nums"><span>87.5</span><span>92</span><span>96</span><span>101.1</span><span>104</span><span>108</span></div>
-      <div class="cap"><span>SIGNAL: <span id="totalTakenLbl">0</span> SHARES TAKEN</span><span><span id="totalLeftLbl">3,000 left</span> ON THE DIAL</span></div>
+
+      <!-- CENTER : THE DIAL -->
+      <div class="center">
+        <div class="onair"><span class="lamp"></span>ON AIR · RADIO ECHO</div>
+        <div class="dial" role="img" aria-label="Tuning dial: the needle sweeps as shares are taken">
+          <div class="dialring"></div>
+          <div class="dial-in">
+            <div class="dbrand">E C H O</div>
+            <div class="dfreq">101.1 <span class="fm">FM</span></div>
+            <div class="dband">
+              <div class="bandflip">
+                <div id="totalBar"></div>
+                <div id="needle"></div>
+              </div>
+              <div class="bandticks"></div>
+            </div>
+            <div class="dnums"><span>87.5</span><span>92</span><span>96</span><span>101.1</span><span>104</span><span>108</span></div>
+            <div class="dcap">THE NEEDLE SWEEPS AS SHARES ARE TAKEN</div>
+          </div>
+        </div>
+        <div class="readouts">
+          <div class="ro"><div class="k">ON AIR IN</div><div class="v" id="cdStart">--:--:--</div></div>
+          <div class="ro"><div class="k">SHARES TAKEN</div><div class="v" id="totalTakenLbl">0</div></div>
+          <div class="ro"><div class="k">STILL ON THE DIAL</div><div class="v" id="totalLeftLbl">3,000 left</div></div>
+          <div class="ro"><div class="k">SIGN-OFF</div><div class="v">23 NOV · 23:30</div></div>
+        </div>
+      </div>
+
+      <!-- RIGHT MODULE : PAID CHANNEL -->
+      <div class="module">
+        <span class="tag paid">CHANNEL B — 0.001 BNB</span>
+        <h3>Buy shares</h3>
+        <p>2,400 shares at a fixed 0.001 BNB each — buy as many as you like, right here on the console.</p>
+        <div class="meter"><i class="p" id="paidMeter"></i></div>
+        <div class="meter-row"><span><span id="paidSold">0</span> / 2,400 sold</span><span><span id="paidLeft">2,400</span> left</span></div>
+        <div class="qtyrow">
+          <input id="buyQty" type="number" min="1" step="1" value="1" aria-label="Number of shares">
+          <span class="tot" id="buyTotal">= 0.001 BNB</span>
+        </div>
+        <button class="btn paidb" id="buyBtn" type="button" disabled>Sale opens at launch</button>
+      </div>
     </div>
 
-    <div class="cdrow">
-      <div class="cd"><div class="k">ON AIR IN</div><div class="v" id="cdStart">--:--:--</div></div>
-      <div class="cd"><div class="k">SIGN-OFF</div><div class="v">23 NOV · 23:30 WIB</div></div>
-      <div class="cd"><div class="k">PROCEEDS TO TREASURY</div><div class="v">100%</div></div>
+    <p class="status" id="walletStatus">Wallet not connected yet — claiming and buying connect it for you.</p>
+
+    <div class="silhouette" aria-hidden="true">
+      <svg viewBox="0 0 1200 90" preserveAspectRatio="none" focusable="false">
+        <path fill="#17130e" d="M0,90 L0,62 L38,62 L38,44 L74,44 L74,62 L112,62 L112,30 L122,30 L122,22 L132,22 L132,30 L142,30 L142,62 L196,62 L196,50 L238,50 L238,62 L286,62 L286,18 L292,18 L292,10 L298,10 L298,18 L306,18 L306,62 L352,62 L352,40 L398,40 L398,62 L448,62 L448,54 L492,54 L492,62 L548,62 L548,34 L560,34 L560,26 L572,26 L572,34 L584,34 L584,62 L640,62 L640,46 L686,46 L686,62 L742,62 L742,24 L750,24 L750,14 L758,14 L758,24 L766,24 L766,62 L820,62 L820,52 L864,52 L864,62 L918,62 L918,36 L930,36 L930,28 L942,28 L942,36 L954,36 L954,62 L1010,62 L1010,48 L1056,48 L1056,62 L1110,62 L1110,32 L1120,32 L1120,24 L1130,24 L1130,32 L1140,32 L1140,62 L1200,62 L1200,90 Z"/>
+        <path fill="#17130e" d="M596,90 L612,34 L618,34 L634,90 L626,90 L615,48 L604,90 Z"/>
+        <path fill="#17130e" d="M588,44 L642,44 L640,50 L590,50 Z M594,58 L636,58 L634,63 L596,63 Z"/>
+        <rect x="613" y="8" width="4" height="28" fill="#17130e"/>
+        <circle class="beacon" cx="615" cy="7" r="4" fill="#e4572e"/>
+      </svg>
+    </div>
+
+    <div class="plate">
+      <div class="pt">STATION LICENSE · ISSUED ON-CHAIN · BNB SMART CHAIN</div>
+      <div class="grid">
+        <span>STATION <b>Echo (ECHO)</b> — one immutable contract, no owner, no admin keys</span>
+        <span>TOTAL SUPPLY <b>3,000,000,000 ECHO</b> · ONE SHARE <b>1,000,000 ECHO</b></span>
+        <span>PROGRAM <b>3,000 shares</b> — 600 free (1 per wallet) + 2,400 at 0.001 BNB</span>
+        <span>WINDOW <b>7 days</b> — 16 Nov 2026, 23:30 WIB → 23 Nov 2026, 23:30 WIB</span>
+        <span>AT SIGN-OFF anyone can call <b>finalize()</b> — every unsold ECHO still in the contract is burned</span>
+        <span>CONTRACT <span class="addr">0x05b02A9FD0b4F58bF013b4137D84593E7a0e6546</span> · <a href="https://bscscan.com/address/0x05b02A9FD0b4F58bF013b4137D84593E7a0e6546" target="_blank" rel="noopener">BscScan</a> · <a href="https://sourcify.dev/#/lookup/0x05b02A9FD0b4F58bF013b4137D84593E7a0e6546" target="_blank" rel="noopener">Sourcify</a> (exact match)</span>
+      </div>
     </div>
   </div>
-</section>
 
-<section class="channels wrap" id="sale">
-  <div class="chan">
-    <span class="tag free">CHANNEL A — FREE AIR</span>
-    <h3>The free share</h3>
-    <p>Every tuned-in wallet gets one share free — no purchase, no catch. 600 free broadcasts; when the channel is full, it is full.</p>
-    <div class="meter"><i class="f" id="freeMeter"></i></div>
-    <div class="meter-row"><span><span id="freeSold">0</span> / 600 claimed</span><span><span id="freeLeft">600</span> left</span></div>
-    <button class="btn freeb" id="claimBtn" type="button" disabled>Claim opens at launch</button>
-  </div>
-  <div class="chan">
-    <span class="tag paid">CHANNEL B — 0.001 BNB</span>
-    <h3>Buy shares</h3>
-    <p>2,400 shares at a fixed 0.001 BNB each — buy as many as you like. The full amount is forwarded to the treasury in the same transaction, live on air.</p>
-    <div class="meter"><i class="p" id="paidMeter"></i></div>
-    <div class="meter-row"><span><span id="paidSold">0</span> / 2,400 sold</span><span><span id="paidLeft">2,400</span> left</span></div>
-    <div class="qtyrow">
-      <input id="buyQty" type="number" min="1" step="1" value="1" aria-label="Number of shares">
-      <span class="tot" id="buyTotal">= 0.001 BNB</span>
-    </div>
-    <button class="btn paidb" id="buyBtn" type="button" disabled>Sale opens at launch</button>
-  </div>
-</section>
-<div class="wrap"><p class="status" id="walletStatus">Wallet not connected yet — claiming and buying connect it for you.</p></div>
-
-<div class="wrap">
   <section class="share" id="shareBox" hidden>
     <span class="tag">YOU ARE ON THE AIR 🎉</span>
-    <p style="margin-bottom:11px;font-family:Georgia,serif">Your share is confirmed on-chain. If you want to tell the other listeners, here is a ready-made post — nothing goes out without your tap.</p>
+    <p>Your share is confirmed on-chain. If you want to tell the other listeners, here is a ready-made post — nothing goes out without your tap.</p>
     <div class="sharetext" id="shareText"></div>
     <div class="row">
       <a class="btn" id="shareBtn" href="#" target="_blank" rel="noopener" style="background:#1d6fb8">Post it on X →</a>
       <button class="btn ghost" id="shareClose" type="button">No thanks</button>
     </div>
   </section>
-</div>
 
-<section class="block wrap" id="license">
-  <h2>Station license</h2>
-  <table>
-    <tr><th>STATION</th><td>Echo (ECHO) — one immutable contract, no owner, no admin keys</td></tr>
-    <tr><th>TOTAL SUPPLY</th><td>3,000,000,000 ECHO</td></tr>
-    <tr><th>ONE SHARE</th><td>1,000,000 ECHO</td></tr>
-    <tr><th>PROGRAMMING</th><td>3,000 shares — 600 free (1 per wallet) + 2,400 at 0.001 BNB</td></tr>
-    <tr><th>PROCEEDS</th><td>100% forwarded to the treasury in the same transaction</td></tr>
-    <tr><th>BROADCAST WINDOW</th><td>16 Nov 2026, 23:30 WIB → 23 Nov 2026, 23:30 WIB</td></tr>
-    <tr><th>AT SIGN-OFF</th><td>Anyone can call finalize() — every unsold ECHO still in the contract is burned</td></tr>
-    <tr><th>CONTRACT</th><td class="addr">0x05b02A9FD0b4F58bF013b4137D84593E7a0e6546 · verified on Sourcify (exact match)</td></tr>
-  </table>
-</section>
-
-<section class="block wrap" id="tunein">
-  <h2>How to tune in</h2>
-  <div class="steps">
-    <div class="step"><p class="no">STEP 01</p><h4>Find the frequency</h4><p>Connect any BNB Smart Chain wallet. Claiming or buying connects it for you — no sign-up, no account.</p></div>
-    <div class="step"><p class="no">STEP 02</p><h4>Take the free broadcast</h4><p>One free share per wallet while the 600 last. Then buy more at 0.001 BNB a share to raise your signal.</p></div>
-    <div class="step"><p class="no">STEP 03</p><h4>Stay for sign-off</h4><p>On 23 Nov the station signs off and a public finalize() call burns the unsold reserve. What was taken is what exists.</p></div>
-  </div>
-</section>
-
-<section class="block wrap" id="agents">
-  <h2>Telegram for robot listeners (agents)</h2>
-  <div class="telegram">
-    <pre id="agentPrompt">You are helping me join the ECHO (ECHO) share sale on BNB Smart Chain (chainId 56).
+  <div class="drawer">
+    <details>
+      <summary>Telegram for robot listeners (agents)</summary>
+      <div class="inner">
+        <pre id="agentPrompt">You are helping me join the ECHO (ECHO) share sale on BNB Smart Chain (chainId 56).
 
 Contract: 0x05b02A9FD0b4F58bF013b4137D84593E7a0e6546 — check it on BscScan and Sourcify before sending anything.
 
-The broadcast: 3,000 shares of 1,000,000 ECHO each. 600 shares are free, one per wallet, via claimFree(). 2,400 shares cost 0.001 BNB each via buy(n) with exactly n × 0.001 BNB. Every payment is forwarded to the project treasury in the same transaction. There is no owner and no admin key. The window runs 16 Nov 2026 23:30 WIB to 23 Nov 2026 23:30 WIB; after it ends, anyone can call finalize() to burn whatever is left unsold.
+The broadcast: 3,000 shares of 1,000,000 ECHO each. 600 shares are free, one per wallet, via claimFree(). 2,400 shares cost 0.001 BNB each via buy(n) with exactly n × 0.001 BNB. There is no owner and no admin key. The window runs 16 Nov 2026 23:30 WIB to 23 Nov 2026 23:30 WIB; after it ends, anyone can call finalize() to burn whatever is left unsold.
 
 Procedure: 1) read freeSold() and paidSold(); 2) if I have not claimed and free shares remain, call claimFree(); 3) if I ask to buy, call buy(n) with the exact value; 4) report my ECHO balance and the transaction hash.
 
 When we are done, offer me a ready-made post for X and ask my approval before posting anything.</pre>
-    <button class="btn" id="copyPromptBtn" type="button">Copy the telegram</button>
+        <button class="btn" id="copyPromptBtn" type="button" style="background:#17130e">Copy the telegram</button>
+      </div>
+    </details>
+    <details>
+      <summary>Listener questions</summary>
+      <div class="inner">
+        <div class="qa"><h4>Is the free share really free?</h4><p>Yes — claimFree() costs only network gas. One per wallet, 600 in total, enforced by the contract itself.</p></div>
+        <div class="qa"><h4>What happens to unsold shares?</h4><p>They are burned at sign-off. After 23 Nov 23:30 WIB anyone can call finalize(), which destroys every ECHO still held by the contract.</p></div>
+        <div class="qa"><h4>Can the station change the program?</h4><p>No. The price, the caps and the window are constants in a verified, immutable contract. There is no owner who could retune them.</p></div>
+      </div>
+    </details>
   </div>
-</section>
-
-<section class="block wrap">
-  <h2>Listener questions</h2>
-  <div class="qa"><h4>Is the free share really free?</h4><p>Yes — claimFree() costs only network gas. One per wallet, 600 in total, enforced by the contract itself.</p></div>
-  <div class="qa"><h4>Where does the money go?</h4><p>100% of every buy() payment is forwarded to the treasury inside the same transaction. The contract keeps nothing and has no withdrawal function.</p></div>
-  <div class="qa"><h4>What happens to unsold shares?</h4><p>They are burned at sign-off. After 23 Nov 23:30 WIB anyone can call finalize(), which destroys every ECHO still held by the contract.</p></div>
-  <div class="qa"><h4>Can the station change the program?</h4><p>No. The price, caps, window and treasury are constants in a verified, immutable contract. There is no owner who could retune them.</p></div>
-</section>
+</div>
 
 <footer>
-  <div class="wrap">
-    <p>ECHO (ECHO) · Contract <span class="addr">0x05b02A9FD0b4F58bF013b4137D84593E7a0e6546</span> · <a href="https://bscscan.com/address/0x05b02A9FD0b4F58bF013b4137D84593E7a0e6546" target="_blank" rel="noopener">BscScan</a> · <a href="https://sourcify.dev/#/lookup/0x05b02A9FD0b4F58bF013b4137D84593E7a0e6546" target="_blank" rel="noopener">Sourcify</a></p>
-    <p style="margin-top:7px">A radio station on BNB Smart Chain. Nothing here is financial advice — verify the frequency before you trust the broadcast.</p>
-  </div>
+  <p>ECHO (ECHO) · 101.1 FM on BNB Smart Chain · Contract <span class="addr">0x05b02A9FD0b4F58bF013b4137D84593E7a0e6546</span></p>
+  <p style="margin-top:6px">Nothing here is financial advice — verify the frequency before you trust the broadcast.</p>
 </footer>
+
+<script>
+(function(){
+  "use strict";
+  // Animated airwaves: dancing EQ bars along the bottom + drifting sine waves.
+  var cv = document.getElementById("waveCanvas"), ctx = cv.getContext("2d");
+  var W = 0, H = 0, bars = [], NB = 56;
+  function size(){
+    W = cv.width = window.innerWidth; H = cv.height = window.innerHeight;
+    bars = [];
+    for (var i = 0; i < NB; i++) bars.push({ p: Math.random() * 6.28, s: .5 + Math.random() * .9, a: .25 + Math.random() * .75 });
+  }
+  size(); window.addEventListener("resize", size);
+  var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function frame(t){
+    ctx.clearRect(0, 0, W, H);
+    var i, x, h;
+    // sine waves
+    for (var w = 0; w < 3; w++){
+      ctx.beginPath();
+      var base = H * (.30 + w * .17), amp = 16 + w * 9, fr = .004 + w * .0016, sp = t * (.00022 + w * .00007);
+      for (x = 0; x <= W; x += 6){
+        var y = base + Math.sin(x * fr + sp * 6.28) * amp + Math.sin(x * fr * 2.7 + sp * 9.4) * amp * .35;
+        if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.strokeStyle = "rgba(255,180,58," + (.13 - w * .03) + ")"; ctx.lineWidth = 2; ctx.stroke();
+    }
+    // EQ bars rising from the bottom edge
+    var bw = W / NB;
+    for (i = 0; i < NB; i++){
+      var b = bars[i];
+      var v = .5 + .5 * Math.sin(t * .0011 * b.s + b.p) * Math.sin(t * .00037 * b.s + b.p * 2.1);
+      h = (14 + v * H * .20) * b.a;
+      x = i * bw;
+      ctx.fillStyle = i % 7 === 3 ? "rgba(228,87,46,.20)" : "rgba(255,180,58,.16)";
+      ctx.fillRect(x + 1.5, H - h, bw - 3, h);
+    }
+    if (!reduced) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
 <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.5/dist/ethers.umd.min.js"></script>
 <script>
 (function(){
@@ -309,7 +390,7 @@ When we are done, offer me a ready-made post for X and ask my approval before po
     var cb = $("claimBtn"), bb = $("buyBtn");
     if (!CONTRACT){ return; }
     if (phase === "before"){ cb.disabled = true; bb.disabled = true;
-      cb.textContent = "Claim opens Nov 16, 19:00 WIB"; bb.textContent = "Sale opens Nov 16, 19:00 WIB"; return; }
+      cb.textContent = "Claim opens Nov 16, 23:30 WIB"; bb.textContent = "Sale opens Nov 16, 23:30 WIB"; return; }
     if (phase === "after"){ cb.disabled = true; bb.disabled = true;
       cb.textContent = "Free claims closed"; bb.textContent = "Sale closed"; return; }
     cb.disabled = f >= FREE_CAP; cb.textContent = f >= FREE_CAP ? "Free shares gone" : "Claim my free share";
@@ -391,7 +472,7 @@ When we are done, offer me a ready-made post for X and ask my approval before po
   });
   $("buyQty").addEventListener("input", function(){
     var n = parseInt($("buyQty").value, 10) || 0;
-    $("buyTotal").textContent = "= " + (n * 0.002).toFixed(3).replace(/0+$/, "").replace(/\.$/, ".0") + " BNB";
+    $("buyTotal").textContent = "= " + (n * 0.001).toFixed(4).replace(/0+$/, "").replace(/\.$/, ".0") + " BNB";
   });
 
   var cpBtn = $("copyPromptBtn");
@@ -413,7 +494,6 @@ When we are done, offer me a ready-made post for X and ask my approval before po
   if (CONTRACT){ refreshStats(); setInterval(refreshStats, 30000); updateButtons(0, 0); }
 })();
 </script>
-</body>
 <script>
 (function(){
   "use strict";
